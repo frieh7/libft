@@ -1,0 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aselfrie <aselfrie@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/03 10:11:17 by aselfrie          #+#    #+#             */
+/*   Updated: 2025/12/15 15:02:30 by aselfrie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+       
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
+		str[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		str[j++] = s2[i++];
+	str[j] = '\0';
+	return (str);
+}
+/*#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    char *s;
+
+    s = ft_strjoin("Hello", "World");
+    printf("%s\n", s); // HelloWorld
+    free(s);
+
+    s = ft_strjoin("", "42");
+    printf("%s\n", s); // 42
+    free(s);
+
+    s = ft_strjoin("Lib", "FT");
+    printf("%s\n", s); // LibFT
+    free(s);
+
+    return 0;
+}*/
+/*
+** Allocates and returns a new string resulting from the
+** concatenation of s1 and s2. Returns NULL if allocation fails
+** or if either input string is NULL.
+*/
